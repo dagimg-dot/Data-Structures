@@ -20,6 +20,19 @@ class LinkedList():
             self.head = ListNode(inp)
             self.head.next = head
 
+    def addNodeAtEnd(self):
+        inp = input("Enter value: ")
+        temp = ListNode(inp)
+        temp.next = None
+        if self.head == None:
+            self.head = temp
+        else:
+            head = self.head
+            while head.next != None:
+                head = head.next
+
+            head.next = temp
+
     def display(self):
         temp = self.head
         if temp == None:
@@ -34,14 +47,17 @@ def main(linkedList):
     print("\nChoose: \n")
     print("1. Create node at first")
     print("2. Display")
+    print("3. Creat node at end")
     choice = input("Your choice: ")
     if choice == '1':
         linkedList.addNodeAtFirst()
     elif choice == '2':
         linkedList.display()
+    elif choice == '3':
+        linkedList.addNodeAtEnd()
     else:
         exit(0)
-    
+
     # Call it again
     main(linkedList)
 
