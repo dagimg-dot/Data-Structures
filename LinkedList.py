@@ -34,13 +34,13 @@ class LinkedList():
             head.next = temp
 
     def display(self):
-        temp = self.head
-        if temp == None:
+        head = self.head
+        if head == None:
             print("End of list")
         else:
-            while temp != None:
-                print(temp.val, end=' ')
-                temp = temp.next
+            while head != None:
+                print(head.val, end=' ')
+                head = head.next
 
 
 def main(linkedList):
