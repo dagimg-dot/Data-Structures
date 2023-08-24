@@ -104,10 +104,8 @@ class LinkedList():
 
     def size(self):
         head = self.head
-        if head == None:
-            return 0
-        count = 1
-        while head.next != None:
+        count = 0
+        while head != None:
             head = head.next
             count += 1
 
