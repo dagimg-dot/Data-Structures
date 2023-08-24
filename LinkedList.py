@@ -44,19 +44,22 @@ class LinkedList():
             end.next = new_node  # Make the new node the last node
 
     def addNodeAtMiddle(self):
-        place = input(
-            "Enter after what node value you want insert the new node : ")
-        found = self.find(val=place)
-        while found == None:
-            place = input("Not found, Enter again : ")
+        if self.head == None:
+            self.addNodeAtFirst()
+        else:
+            place = input(
+                "Enter after what node value you want insert the new node : ")
             found = self.find(val=place)
-
-        inp = input("Enter the value: ")
-        new_node = ListNode(inp)
-
-        next_node = found.next
-        found.next = new_node
-        new_node.next = next_node
+            while found == None:
+                place = input("Not found, Enter again : ")
+                found = self.find(val=place)
+    
+            inp = input("Enter the value: ")
+            new_node = ListNode(inp)
+    
+            next_node = found.next
+            found.next = new_node
+            new_node.next = next_node
 
     def find(self, val):
         if self.head == None:
