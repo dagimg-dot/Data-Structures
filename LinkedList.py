@@ -63,6 +63,12 @@ class LinkedList():
             found.next = new_node  # Make the next of the found node the new created node
             new_node.next = next_node  # Make the next of the new node what we saved earlier
 
+    def deleteNodeAtFirst(self):
+        if self.head == None:
+            return
+        else:
+            self.head = self.head.next
+
     def find(self, val):
         head = self.head
         if head == None:  # If the list is empty return None
@@ -90,6 +96,7 @@ def main(linkedList):
     print("1. Create node at first")
     print("2. Create node at the middle")
     print("3. Create node at end")
+    print("4. Delete node at first")
     choice = input("Your choice: ")
     if choice == 'd':
         linkedList.display()
@@ -99,6 +106,8 @@ def main(linkedList):
         linkedList.addNodeAtMiddle()
     elif choice == '3':
         linkedList.addNodeAtEnd()
+    elif choice == '4':
+        linkedList.deleteNodeAtFirst()
     else:
         exit(0)
 
