@@ -73,14 +73,13 @@ class LinkedList():
         head = self.head
         if head == None:
             return
+        elif head.next == None:
+            self.head = None
         else:
-            if head.next == None:
-                self.head = None
-            else:
-                while head.next.next != None:
-                    head = head.next
+            while head.next.next != None:
+                head = head.next
 
-                head.next = None
+            head.next = None
 
     def find(self, val):
         head = self.head
