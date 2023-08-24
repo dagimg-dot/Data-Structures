@@ -40,7 +40,8 @@ class LinkedList():
             while head.next != None:
                 head = head.next
 
-            head.next = temp # Make the new node the last node
+            end = head # Name the last node 'end' for clarity
+            end.next = temp # Make the new node the last node
 
     def display(self):
         head = self.head
