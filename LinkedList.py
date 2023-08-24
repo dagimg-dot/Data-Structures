@@ -86,7 +86,7 @@ class LinkedList():
         if head == None:  # Nothing to delete because the list it empty
             return
         elif head.next == None:  # Only one member is no the list, so call the deleteAtFirst method
-            self.deleteNodeAtFirst()
+            self.head = None
         else:
             # Accept and find the node with the value
             place = input(
