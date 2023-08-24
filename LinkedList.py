@@ -102,6 +102,17 @@ class LinkedList():
             # Make the next of this node the next of the node you want to delete
             head.next = found.next
 
+    def size(self):
+        head = self.head
+        if head == None:
+            return 0
+        count = 1
+        while head.next != None:
+            head = head.next
+            count += 1
+
+        return count
+
     def find(self, val):
         head = self.head
         if head == None:  # If the list is empty return None
@@ -132,6 +143,7 @@ def main(linkedList: LinkedList):
     print("4. Delete node at first")
     print("5. Delete node at the end")
     print("6. Delete node at the middle")
+    print("7. Print size of the linked list")
     choice = input("Your choice: ")
     if choice == 'd':
         linkedList.display()
@@ -147,6 +159,8 @@ def main(linkedList: LinkedList):
         linkedList.deleteNodeAtEnd()
     elif choice == '6':
         linkedList.deleteNodeAtMiddle()
+    elif choice == '7':
+        print(linkedList.size())
     else:
         exit(0)
 
