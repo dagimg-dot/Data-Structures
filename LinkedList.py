@@ -69,6 +69,19 @@ class LinkedList():
         else:
             self.head = self.head.next
 
+    def deleteNodeAtEnd(self):
+        head = self.head
+        if head == None:
+            return
+        else:
+            if head.next == None:
+                self.head = None
+            else:
+                while head.next.next != None:
+                    head = head.next
+
+                head.next = None
+
     def find(self, val):
         head = self.head
         if head == None:  # If the list is empty return None
@@ -90,13 +103,14 @@ class LinkedList():
                 head = head.next
 
 
-def main(linkedList):
+def main(linkedList: LinkedList):
     print("\nChoose: \n")
     print("'d' For Display")
     print("1. Create node at first")
     print("2. Create node at the middle")
-    print("3. Create node at end")
+    print("3. Create node at the end")
     print("4. Delete node at first")
+    print("5. Delete node at the end")
     choice = input("Your choice: ")
     if choice == 'd':
         linkedList.display()
@@ -108,6 +122,8 @@ def main(linkedList):
         linkedList.addNodeAtEnd()
     elif choice == '4':
         linkedList.deleteNodeAtFirst()
+    elif choice == '5':
+        linkedList.deleteNodeAtEnd()
     else:
         exit(0)
 
