@@ -64,22 +64,22 @@ class LinkedList():
             new_node.next = next_node  # Make the next of the new node what we saved earlier
 
     def deleteNodeAtFirst(self):
-        if self.head == None: # Nothing to delete here because the list is empty
+        if self.head == None:  # Nothing to delete here because the list is empty
             return
         else:
-            self.head = self.head.next # Make the next of the head the head
+            self.head = self.head.next  # Make the next of the head the head
 
     def deleteNodeAtEnd(self):
         head = self.head
-        if head == None: # Nothing to delte here because the list is empty
+        if head == None:  # Nothing to delte here because the list is empty
             return
-        elif head.next == None: # Only one member is on the list, so make the head None
+        elif head.next == None:  # Only one member is on the list, so make the head None
             self.head = None
         else:
-            while head.next.next != None: # Loop until the node that is before the last node is found
+            while head.next.next != None:  # Loop until the node that is before the last node is found
                 head = head.next
 
-            head.next = None # Make the next of this node None
+            head.next = None  # Make the next of this node None
 
     def find(self, val):
         head = self.head
