@@ -12,27 +12,27 @@ class LinkedList():
     def addNodeAtFirst(self):
         # Accept the value and create the node
         inp = input("Enter value: ")
-        temp = ListNode(inp)
+        new_node = ListNode(inp)
 
         # This checks if the linked list is empty or there are nodes
         if self.head == None:
-            self.head = temp  # Make the new node the head of the linked list
-            temp.next = None  # Make the next of the new node point to nothing
+            self.head = new_node  # Make the new node the head of the linked list
+            new_node.next = None  # Make the next of the new node point to nothing
         else:
             # This means there are already other nodes in the linked lilst
             head = self.head
-            self.head = temp  # Make the new node the head node
+            self.head = new_node  # Make the new node the head node
             self.head.next = head  # Make the previous node next to the new node
 
     def addNodeAtEnd(self):
         # Accept and create the new node
         inp = input("Enter value: ")
-        temp = ListNode(inp)
-        temp.next = None  # Make the next of the new node nothing
+        new_node = ListNode(inp)
+        new_node.next = None  # Make the next of the new node nothing
 
         # This checks if the linked list has already other nodes
         if self.head == None:
-            self.head = temp
+            self.head = new_node
         else:
             head = self.head
             # Loop until you find the last node, this can be done by running a while loop
@@ -41,7 +41,7 @@ class LinkedList():
                 head = head.next
 
             end = head  # Name the last node 'end' for clarity
-            end.next = temp  # Make the new node the last node
+            end.next = new_node  # Make the new node the last node
 
     def addNodeAtMiddle(self):
         place = input(
@@ -52,11 +52,11 @@ class LinkedList():
             found = self.find(val=place)
 
         inp = input("Enter the value: ")
-        temp = ListNode(inp)
+        new_node = ListNode(inp)
 
         next_node = found.next
-        found.next = temp
-        temp.next = next_node
+        found.next = new_node
+        new_node.next = next_node
 
     def find(self, val):
         if self.head == None:
