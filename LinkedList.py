@@ -12,7 +12,7 @@ class LinkedList():
     def addNodeAtFirst(self):
         # Accept the value and create the node
         inp = input("Enter value: ")
-        new_node = ListNode(inp)
+        new_node = ListNode(val=inp)
 
         # This checks if the linked list is empty or there are nodes
         if self.head == None:
@@ -27,7 +27,7 @@ class LinkedList():
     def addNodeAtEnd(self):
         # Accept and create the new node
         inp = input("Enter value: ")
-        new_node = ListNode(inp)
+        new_node = ListNode(val=inp)
         new_node.next = None  # Make the next of the new node nothing
 
         head = self.head
@@ -57,7 +57,7 @@ class LinkedList():
 
             # Accept the value and create a new node
             inp = input("Enter the value: ")
-            new_node = ListNode(inp)
+            new_node = ListNode(val=inp)
 
             next_node = found.next  # Save the node next to the found node for later
             found.next = new_node  # Make the next of the found node the new created node
