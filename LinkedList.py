@@ -113,6 +113,20 @@ class LinkedList():
 
         return count
 
+    def reverse(self):
+        head = self.head
+        if head == None or head.next == None:
+            return
+        else:
+            temp = None
+            while head != None:
+                next_node = head.next
+                head.next = temp
+                temp = head
+                head = next_node
+
+            self.head = temp
+
     def find(self, val):
         head = self.head
         if head == None:  # If the list is empty return None
@@ -144,6 +158,7 @@ def main(linkedList: LinkedList):
     print("5. Delete node at the end")
     print("6. Delete node at the middle")
     print("7. Print size of the linked list")
+    print("8. Reverse the linked list")
     choice = input("Your choice: ")
     if choice == 'd':
         linkedList.display()
@@ -161,6 +176,8 @@ def main(linkedList: LinkedList):
         linkedList.deleteNodeAtMiddle()
     elif choice == '7':
         print(linkedList.size())
+    elif choice == '8':
+        linkedList.reverse()
     else:
         exit(0)
 
