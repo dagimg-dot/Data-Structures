@@ -81,6 +81,27 @@ class LinkedList():
 
             head.next = None  # Make the next of this node None
 
+    def deleteNodeAtMiddle(self):
+        head = self.head
+        if head == None:  # Nothing to delete because the list it empty
+            return
+        elif head.next == None:  # Only one member is no the list, so call the deleteAtFirst method
+            self.deleteNodeAtFirst()
+        else:
+            # Accept and find the node with the value
+            place = input(
+                "Enter the value of the node you want to delete : ")
+            found = self.find(val=place)
+            while found == None:  # If it's not found ask again
+                place = input("Not found, Enter again : ")
+                found = self.find(val=place)
+
+            while head.next != found:  # Loop until you find the node before the node you want to delete
+                head = head.next
+
+            # Make the next of this node the next of the node you want to delete
+            head.next = found.next
+
     def find(self, val):
         head = self.head
         if head == None:  # If the list is empty return None
@@ -110,6 +131,7 @@ def main(linkedList: LinkedList):
     print("3. Create node at the end")
     print("4. Delete node at first")
     print("5. Delete node at the end")
+    print("6. Delete node at the middle")
     choice = input("Your choice: ")
     if choice == 'd':
         linkedList.display()
@@ -123,6 +145,8 @@ def main(linkedList: LinkedList):
         linkedList.deleteNodeAtFirst()
     elif choice == '5':
         linkedList.deleteNodeAtEnd()
+    elif choice == '6':
+        linkedList.deleteNodeAtMiddle()
     else:
         exit(0)
 
