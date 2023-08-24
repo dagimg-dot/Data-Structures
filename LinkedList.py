@@ -102,4 +102,5 @@ def main(linkedList):
 
 
 list = LinkedList()
-main(list)
+if __name__ == '__main__':
+    main(list)
