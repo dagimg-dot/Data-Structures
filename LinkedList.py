@@ -42,6 +42,9 @@ class LinkedList():
         value = self.get(pos)
         self.__addNodeAtMiddle(pos=value, val=val)
 
+    def clear(self):
+        self.head = None
+
     def size(self):
         head = self.head
         count = 0
@@ -132,13 +135,13 @@ class LinkedList():
             found.next = new_node  # Make the next of the found node the new created node
             new_node.next = next_node  # Make the next of the new node what we saved earlier
 
-    def deleteNodeAtFirst(self):
+    def __deleteNodeAtFirst(self):
         if self.head == None:  # Nothing to delete here because the list is empty
             return
         else:
             self.head = self.head.next  # Make the next of the head the head
 
-    def deleteNodeAtEnd(self):
+    def __deleteNodeAtEnd(self):
         head = self.head
         if head == None:  # Nothing to delte here because the list is empty
             return
@@ -150,7 +153,7 @@ class LinkedList():
 
             head.next = None  # Make the next of this node None
 
-    def deleteNodeAtMiddle(self):
+    def __deleteNodeAtMiddle(self):
         head = self.head
         if head == None:  # Nothing to delete because the list it empty
             return
@@ -170,45 +173,3 @@ class LinkedList():
 
             # Make the next of this node the next of the node you want to delete
             head.next = found.next
-
-
-def main(linkedList: LinkedList):
-    print("\nChoose: \n")
-    print("'d' For Display")
-    print("1. Create node at first")
-    print("2. Create node at the middle")
-    print("3. Create node at the end")
-    print("4. Delete node at first")
-    print("5. Delete node at the end")
-    print("6. Delete node at the middle")
-    print("7. Print size of the linked list")
-    print("8. Reverse the linked list")
-    choice = input("Your choice: ")
-    if choice == 'd':
-        linkedList.display()
-    elif choice == '1':
-        linkedList.addNodeAtFirst()
-    elif choice == '2':
-        linkedList.addNodeAtMiddle()
-    elif choice == '3':
-        linkedList.addNodeAtEnd()
-    elif choice == '4':
-        linkedList.deleteNodeAtFirst()
-    elif choice == '5':
-        linkedList.deleteNodeAtEnd()
-    elif choice == '6':
-        linkedList.deleteNodeAtMiddle()
-    elif choice == '7':
-        print(linkedList.size())
-    elif choice == '8':
-        linkedList.reverse()
-    else:
-        exit(0)
-
-    # Call it again
-    main(linkedList)
-
-
-list = LinkedList()
-if __name__ == '__main__':
-    main(list)
