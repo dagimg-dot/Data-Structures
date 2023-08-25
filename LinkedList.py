@@ -38,6 +38,10 @@ class LinkedList():
 
         return head.val
 
+    def insert(self, pos, val):
+        value = self.get(pos)
+        self.__addNodeAtMiddle(pos=value, val=val)
+
     def size(self):
         head = self.head
         count = 0
