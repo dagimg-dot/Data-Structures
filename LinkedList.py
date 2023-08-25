@@ -13,7 +13,19 @@ class LinkedList():
         self.__addNodeAtEnd(val=val)
 
     def index(self, val):
-        pass
+        pos = 0
+        head = self.head
+        if head == None:
+            raise ValueError
+
+        while head != None and head.val != val:
+            pos += 1
+            head = head.next
+
+        if pos == self.size():
+            raise ValueError
+
+        return pos
 
     def insert(self, pos, val):
         pass
