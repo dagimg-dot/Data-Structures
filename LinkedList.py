@@ -9,10 +9,8 @@ class LinkedList():
     def __init__(self):
         self.head = None  # This means we have an empty linked list at the start because the head is pointing to nothing
 
-    def addNodeAtFirst(self):
-        # Accept the value and create the node
-        inp = input("Enter value: ")
-        new_node = ListNode(val=inp)
+    def addNodeAtFirst(self, val):
+        new_node = ListNode(val=val)
 
         # This checks if the linked list is empty or there are nodes
         if self.head == None:
@@ -24,10 +22,9 @@ class LinkedList():
             self.head = new_node  # Make the new node the head node
             self.head.next = head  # Make the previous node next to the new node
 
-    def addNodeAtEnd(self):
+    def addNodeAtEnd(self, val):
         # Accept and create the new node
-        inp = input("Enter value: ")
-        new_node = ListNode(val=inp)
+        new_node = ListNode(val=val)
         new_node.next = None  # Make the next of the new node nothing
 
         head = self.head
@@ -43,21 +40,15 @@ class LinkedList():
             end = head  # Name the last node 'end' for clarity
             end.next = new_node  # Make the new node the last node
 
-    def addNodeAtMiddle(self):
+    def addNodeAtMiddle(self, pos, val):
         if self.head == None:  # Check if the list is empty then call add node at first method
-            self.addNodeAtFirst()
+            self.addNodeAtFirst(val=val)
         else:
-            # Accept and find the node with the value
-            place = input(
-                "Enter after what node value you want insert the new node : ")
-            found = self.find(val=place)
-            while found == None:  # If it's not found ask again
-                place = input("Not found, Enter again : ")
-                found = self.find(val=place)
+            found = self.find(val=pos)
+            if found == None:
+                raise ValueError
 
-            # Accept the value and create a new node
-            inp = input("Enter the value: ")
-            new_node = ListNode(val=inp)
+            new_node = ListNode(val=val)
 
             next_node = found.next  # Save the node next to the found node for later
             found.next = new_node  # Make the next of the found node the new created node
