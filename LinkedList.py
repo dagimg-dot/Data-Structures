@@ -9,7 +9,53 @@ class LinkedList():
     def __init__(self):
         self.head = None  # This means we have an empty linked list at the start because the head is pointing to nothing
 
-    def addNodeAtFirst(self, val):
+    def append(self, val):
+        self.__addNodeAtEnd(val=val)
+
+    def size(self):
+        head = self.head
+        count = 0
+        while head != None:
+            head = head.next
+            count += 1
+
+        return count
+
+    def reverse(self):
+        head = self.head
+        if head == None or head.next == None:
+            return
+        else:
+            temp = None
+            while head != None:
+                next_node = head.next
+                head.next = temp
+                temp = head
+                head = next_node
+
+            self.head = temp
+
+    def __find(self, val):
+        head = self.head
+        if head == None:  # If the list is empty return None
+            return None
+        else:
+            while head != None and head.val != val:  # Loop until the value is found or the list is over
+                head = head.next
+
+        found = head  # This might be the node with the wanted value or None
+        return found  # Whenever we use this method we have to handle the error correctly by checking if its a node or None
+
+    def display(self):
+        head = self.head
+        if head == None:  # If the head is None then the list is empty
+            print("End of list")
+        else:
+            while head != None:  # Loop until the list is over, we know its over when the last node's next is None
+                print(head.val, end=' ')
+                head = head.next
+
+    def __addNodeAtFirst(self, val):
         new_node = ListNode(val=val)
 
         # This checks if the linked list is empty or there are nodes
@@ -22,15 +68,14 @@ class LinkedList():
             self.head = new_node  # Make the new node the head node
             self.head.next = head  # Make the previous node next to the new node
 
-    def addNodeAtEnd(self, val):
-        # Accept and create the new node
+    def __addNodeAtEnd(self, val):
         new_node = ListNode(val=val)
         new_node.next = None  # Make the next of the new node nothing
 
         head = self.head
         # This checks if the linked list has already other nodes
         if head == None:
-            head = new_node
+            self.head = new_node
         else:
             # Loop until you find the last node, this can be done by running a while loop
             # until you find that the next of the lase node is nothing
@@ -40,11 +85,11 @@ class LinkedList():
             end = head  # Name the last node 'end' for clarity
             end.next = new_node  # Make the new node the last node
 
-    def addNodeAtMiddle(self, pos, val):
+    def __addNodeAtMiddle(self, pos, val):
         if self.head == None:  # Check if the list is empty then call add node at first method
-            self.addNodeAtFirst(val=val)
+            self.__addNodeAtFirst(val=val)
         else:
-            found = self.find(val=pos)
+            found = self.__find(val=pos)
             if found == None:
                 raise ValueError
 
@@ -92,49 +137,6 @@ class LinkedList():
 
             # Make the next of this node the next of the node you want to delete
             head.next = found.next
-
-    def size(self):
-        head = self.head
-        count = 0
-        while head != None:
-            head = head.next
-            count += 1
-
-        return count
-
-    def reverse(self):
-        head = self.head
-        if head == None or head.next == None:
-            return
-        else:
-            temp = None
-            while head != None:
-                next_node = head.next
-                head.next = temp
-                temp = head
-                head = next_node
-
-            self.head = temp
-
-    def find(self, val):
-        head = self.head
-        if head == None:  # If the list is empty return None
-            return None
-        else:
-            while head != None and head.val != val:  # Loop until the value is found or the list is over
-                head = head.next
-
-        found = head  # This might be the node with the wanted value or None
-        return found  # Whenever we use this method we have to handle the error correctly by checking if its a node or None
-
-    def display(self):
-        head = self.head
-        if head == None:  # If the head is None then the list is empty
-            print("End of list")
-        else:
-            while head != None:  # Loop until the list is over, we know its over when the last node's next is None
-                print(head.val, end=' ')
-                head = head.next
 
 
 def main(linkedList: LinkedList):
