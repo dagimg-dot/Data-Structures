@@ -27,8 +27,16 @@ class LinkedList():
 
         return pos
 
-    def insert(self, pos, val):
-        pass
+    def get(self, idx):
+        count = 0
+        head = self.head
+        while head != None and count != idx:
+            head = head.next
+            count += 1
+        if count == self.size():
+            raise IndexError
+
+        return head.val
 
     def size(self):
         head = self.head
