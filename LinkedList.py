@@ -12,6 +12,12 @@ class LinkedList():
     def append(self, val):
         self.__addNodeAtEnd(val=val)
 
+    def index(self, val):
+        pass
+
+    def insert(self, pos, val):
+        pass
+
     def size(self):
         head = self.head
         count = 0
@@ -35,6 +41,18 @@ class LinkedList():
 
             self.head = temp
 
+    def display(self):
+        head = self.head
+        if head == None:  # If the head is None then the list is empty
+            print("[]")
+        else:
+            print("[", end='')
+            while head != None:  # Loop until the list is over, we know its over when the last node's next is None
+                print(head.val, end=', ') if head.next != None else print(
+                    head.val, end='')
+                head = head.next
+            print("]", end='')
+
     def __find(self, val):
         head = self.head
         if head == None:  # If the list is empty return None
@@ -45,15 +63,6 @@ class LinkedList():
 
         found = head  # This might be the node with the wanted value or None
         return found  # Whenever we use this method we have to handle the error correctly by checking if its a node or None
-
-    def display(self):
-        head = self.head
-        if head == None:  # If the head is None then the list is empty
-            print("End of list")
-        else:
-            while head != None:  # Loop until the list is over, we know its over when the last node's next is None
-                print(head.val, end=' ')
-                head = head.next
 
     def __addNodeAtFirst(self, val):
         new_node = ListNode(val=val)
