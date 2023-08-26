@@ -23,14 +23,14 @@ class LinkedList(DataStructures):
         pos = 0
         head = self.head
         if head == None:
-            raise ValueError
+            raise ValueError("value not found")
 
         while head != None and head.val != value:
             pos += 1
             head = head.next
 
         if pos == self.size():
-            raise ValueError
+            raise ValueError("value not found")
 
         return pos
 
@@ -48,11 +48,11 @@ class LinkedList(DataStructures):
         Insert object after index\n\n
         Raises IndexError if index not found
         """
-        if index == 0:
+        if self.size() == 0:
             self._addNodeAtFirst(val=value)
         else:
-            value = self.get(index)
-            self._addNodeAtMiddle(pos=value, val=value)
+            node = self._getByIndex(index)
+            self._addNodeAtMiddle(pos=node.val, val=value)
 
     def reverse(self) -> None:
         """
