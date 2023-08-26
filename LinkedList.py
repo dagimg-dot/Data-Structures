@@ -36,15 +36,9 @@ class LinkedList(DataStructures):
         Return the value found in the index\n\n
         Raises IndexError if index not found
         """
-        count = 0
-        head = self.head
-        while head != None and count != index:
-            head = head.next
-            count += 1
-        if count == self.size():
-            raise IndexError
+        node = self._getByIndex(idx=index)
 
-        return head.val
+        return node.val
 
     def insert(self, index: int, value: any) -> None:
         """
