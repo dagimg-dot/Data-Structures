@@ -91,3 +91,10 @@ class LinkedList(DataStructures):
                 head = next_node
 
             self.head = temp
+
+    def remove(self, value: any) -> None:
+        """
+        Remove first occurence of value\n\n
+        Raises ValueError if value is not present
+        """
+        self._deleteNodeAtMiddle(val=value)
