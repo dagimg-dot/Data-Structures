@@ -98,3 +98,16 @@ class LinkedList(DataStructures):
         Raises ValueError if value is not present
         """
         self._deleteNodeAtMiddle(val=value)
+
+    def count(self, value: any) -> int:
+        """
+        Return number of occurences of value
+        """
+        count = 0
+        head = self.head
+        while head != None:
+            if head.val == value:
+                count += 1
+            head = head.next
+
+        return count
