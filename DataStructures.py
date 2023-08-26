@@ -43,6 +43,17 @@ class DataStructures():
         """
         self.head = None
 
+    def _getByIndex(self, idx) -> ListNode:
+        count = 0
+        head = self.head
+        while head != None and count != idx:
+            count += 1
+            head = head.next
+        if count == self.size():
+            raise IndexError
+
+        return head
+
     def _find(self, val):
         head = self.head
         if head == None:  # If the list is empty return None
