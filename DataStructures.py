@@ -86,7 +86,7 @@ class DataStructures():
 
     def _addNodeAtMiddle(self, pos, val):
         if self.head == None:  # Check if the list is empty then call add node at first method
-            self.__addNodeAtFirst(val=val)
+            self._addNodeAtFirst(val=val)
         else:
             found = self._find(val=pos)
             if found == None:
@@ -99,14 +99,10 @@ class DataStructures():
             new_node.next = next_node  # Make the next of the new node what we saved earlier
 
     def _deleteNodeAtFirst(self):
-        deleted = None
         if self.head == None:  # Nothing to delete here because the list is empty
             return
         else:
-            deleted = self.head
             self.head = self.head.next  # Make the next of the head the head
-
-        return deleted.val
 
     def _deleteNodeAtEnd(self):
         head = self.head
@@ -124,15 +120,18 @@ class DataStructures():
         head = self.head
         if head == None:  # Nothing to delete because the list it empty
             return
-        elif head.next == None:  # Only one member is no the list, so call the deleteAtFirst method
+        elif head.next == None:  # Only one member is on the list, so call the deleteAtFirst method
             self.head = None
         else:
             found = self._find(val=val)
-            if found == None:  # If it's not found ask again
+            if found == None:
                 raise ValueError
 
-            while head.next != found:  # Loop until you find the node before the node you want to delete
-                head = head.next
+            if head.val == found.val:
+                self._deleteNodeAtFirst()
+            else:
+                while head.next != found:  # Loop until you find the node before the node you want to delete
+                    head = head.next
 
-            # Make the next of this node the next of the node you want to delete
-            head.next = found.next
+                # Make the next of this node the next of the node you want to delete
+                head.next = found.next
