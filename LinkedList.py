@@ -34,7 +34,7 @@ class LinkedList(DataStructures):
 
         return pos
 
-    def get(self, index: int) -> object:
+    def get(self, index: int) -> any:
         """
         Return the value found in the index\n\n
         Raises IndexError if index not found
