@@ -2,6 +2,9 @@ from DataStructures import DataStructures
 
 
 class LinkedList(DataStructures):
+    """ 
+    LinkedList implementation 
+    """
     def __init__(self):
         # This means we have an empty linked list at the start because the head is pointing to nothing
         super().__init__()
