@@ -8,7 +8,7 @@ class DataStructures():
     def __init__(self):
         self.head = None
 
-    def display(self):
+    def display(self) -> None:
         # TODO: I have to know what "Print the values to a stream" means related to the terminal
         """
         Print the values to a stream
@@ -24,6 +24,24 @@ class DataStructures():
                 head = head.next
             print("]", end='')
             print()
+
+    def size(self) -> int:
+        """
+        Return the size the DataStructure
+        """
+        head = self.head
+        count = 0
+        while head != None:
+            head = head.next
+            count += 1
+
+        return count
+
+    def clear(self) -> None:
+        """
+        Clear the DataStructure
+        """
+        self.head = None
 
     def _find(self, val):
         head = self.head
@@ -81,10 +99,14 @@ class DataStructures():
             new_node.next = next_node  # Make the next of the new node what we saved earlier
 
     def _deleteNodeAtFirst(self):
+        deleted = None
         if self.head == None:  # Nothing to delete here because the list is empty
             return
         else:
+            deleted = self.head
             self.head = self.head.next  # Make the next of the head the head
+
+        return deleted.val
 
     def _deleteNodeAtEnd(self):
         head = self.head
@@ -108,7 +130,7 @@ class DataStructures():
             found = self._find(val=val)
             if found == None:  # If it's not found ask again
                 raise ValueError
-            
+
             while head.next != found:  # Loop until you find the node before the node you want to delete
                 head = head.next
 

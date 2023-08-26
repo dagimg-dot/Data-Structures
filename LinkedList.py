@@ -57,24 +57,6 @@ class LinkedList(DataStructures):
             value = self.get(index)
             self._addNodeAtMiddle(pos=value, val=value)
 
-    def clear(self) -> None:
-        """
-        Clear the LinkedList
-        """
-        self.head = None
-
-    def size(self) -> int:
-        """
-        Return the size the LinkedList
-        """
-        head = self.head
-        count = 0
-        while head != None:
-            head = head.next
-            count += 1
-
-        return count
-
     def reverse(self) -> None:
         """
         Reverse the LinkedList
