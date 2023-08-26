@@ -6,16 +6,13 @@ class LinkedList(DataStructures):
         # This means we have an empty linked list at the start because the head is pointing to nothing
         super().__init__()
 
-    def append(self, value: object) -> None:
+    def append(self, value: any) -> None:
         """
-        Append on object to the end of the LinkedList\n
-        Usage: \n
-        list = LinkedList \n
-        list.append(26)
+        Append value to the end of the LinkedList
         """
         self._addNodeAtEnd(val=value)
 
-    def index(self, value: object) -> int:
+    def index(self, value: any) -> int:
         """
         Return first index of value\n\n
         Raises ValueError if the value is not present
@@ -49,7 +46,7 @@ class LinkedList(DataStructures):
 
         return head.val
 
-    def insert(self, index: int, value: object) -> None:
+    def insert(self, index: int, value: any) -> None:
         """
         Insert object after index\n\n
         Raises IndexError if index not found
