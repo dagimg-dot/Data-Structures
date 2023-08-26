@@ -57,7 +57,7 @@ class DataStructures():
 
         return head
 
-    def _find(self, val):
+    def _find(self, val) -> ListNode:
         head = self.head
         if head == None:  # If the list is empty return None
             return None
