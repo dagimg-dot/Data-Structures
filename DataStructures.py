@@ -19,6 +19,7 @@ class DataStructures():
                     head.val, end='')
                 head = head.next
             print("]", end='')
+            print()
 
     def _find(self, val):
         head = self.head
@@ -93,21 +94,17 @@ class DataStructures():
 
             head.next = None  # Make the next of this node None
 
-    def _deleteNodeAtMiddle(self):
+    def _deleteNodeAtMiddle(self, val):
         head = self.head
         if head == None:  # Nothing to delete because the list it empty
             return
         elif head.next == None:  # Only one member is no the list, so call the deleteAtFirst method
             self.head = None
         else:
-            # Accept and find the node with the value
-            place = input(
-                "Enter the value of the node you want to delete : ")
-            found = self._find(val=place)
-            while found == None:  # If it's not found ask again
-                place = input("Not found, Enter again : ")
-                found = self._find(val=place)
-
+            found = self._find(val=val)
+            if found == None:  # If it's not found ask again
+                raise ValueError
+            
             while head.next != found:  # Loop until you find the node before the node you want to delete
                 head = head.next
 
