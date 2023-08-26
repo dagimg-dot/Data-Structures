@@ -36,8 +36,11 @@ class LinkedList(DataStructures):
         return head.val
 
     def insert(self, pos, val):
-        value = self.get(pos)
-        self._addNodeAtMiddle(pos=value, val=val)
+        if pos == 0:
+            self._addNodeAtFirst(val=val)
+        else:
+            value = self.get(pos)
+            self._addNodeAtMiddle(pos=value, val=val)
 
     def clear(self):
         self.head = None
