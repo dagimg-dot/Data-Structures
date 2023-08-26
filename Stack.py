@@ -7,3 +7,6 @@ class Stack(DataStructures):
     def push(self, value: any) -> None:
         self._addNodeAtEnd(val=value)
     
+    def pop(self) -> None:
+        self._deleteNodeAtEnd()
+    
