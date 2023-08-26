@@ -21,7 +21,7 @@ class Stack(DataStructures):
         """
         size = self.size()
         if size == 0:
-            raise IndexError
+            raise IndexError("pop from empty list")
 
         if index == -1 or index == size - 1:
             last_node = self._getByIndex(size - 1)

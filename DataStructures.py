@@ -49,8 +49,11 @@ class DataStructures():
         while head != None and count != idx:
             count += 1
             head = head.next
+        if self.size() == 0:
+            raise IndexError("empty list")
+        
         if count == self.size():
-            raise IndexError
+            raise IndexError("out of range")
 
         return head
 
@@ -101,7 +104,7 @@ class DataStructures():
         else:
             found = self._find(val=pos)
             if found == None:
-                raise ValueError
+                raise ValueError("value not found")
 
             new_node = ListNode(val=val)
 
@@ -136,7 +139,7 @@ class DataStructures():
         else:
             found = self._find(val=val)
             if found == None:
-                raise ValueError
+                raise ValueError("value not found")
 
             if head.val == found.val:
                 self._deleteNodeAtFirst()
