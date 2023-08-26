@@ -24,7 +24,7 @@ class LinkedList(DataStructures):
         pos = 0
         head = self.head
         if head == None:
-            raise ValueError("value not found")
+            raise ValueError("empty list")
 
         while head != None and head.val != value:
             pos += 1
