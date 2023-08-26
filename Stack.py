@@ -5,6 +5,7 @@ class Stack(DataStructures):
     """ 
     Stack Implementation
     """
+
     def __init__(self):
         super().__init__()
 
