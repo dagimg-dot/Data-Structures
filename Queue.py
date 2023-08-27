@@ -1,3 +1,4 @@
+from typing import List
 from DataStructures import DataStructures
 
 
@@ -27,3 +28,10 @@ class Queue(DataStructures):
         value = last_node.val
         self._deleteNodeAtEnd()
         return value
+
+    def fromlist(self, python_list: List) -> None:
+        """
+        Convert a python built-in list to a Queue
+        """
+        for value in python_list:
+            self._addNodeAtEnd(value)
