@@ -1,3 +1,4 @@
+from typing import List
 from DataStructures import DataStructures
 
 
@@ -34,3 +35,10 @@ class Stack(DataStructures):
             value = node.val
             self._deleteNodeAtMiddle(value)
             return value
+
+    def fromlist(self, python_list: List) -> None:
+        """
+        Convert a python built-in list to a Stack
+        """
+        for value in python_list:
+            self._addNodeAtEnd(value)
