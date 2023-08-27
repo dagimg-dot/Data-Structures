@@ -8,6 +8,13 @@ class ListNode():
 
 
 class DataStructures():
+    """
+    Base class for all the data structures below\n\n
+    - LinkedList
+    - Stack
+    - Queue
+    """
+
     def __init__(self):
         self.head = None
 
