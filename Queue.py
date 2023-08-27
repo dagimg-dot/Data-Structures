@@ -8,3 +8,9 @@ class Queue(DataStructures):
 
     def __init__(self):
         super().__init__()
+
+    def enqueue(self, value: any) -> None:
+        """
+        Add value to the start of the queue
+        """
+        self._addNodeAtFirst(value)
