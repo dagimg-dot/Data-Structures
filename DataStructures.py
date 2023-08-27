@@ -50,11 +50,11 @@ class DataStructures():
         """
         Converts a DataStructure to a python built-in list
         """
-        python_list = []
         head = self.head
         if head == None:
             return
 
+        python_list = []
         while head != None:
             python_list.append(head.val)
             head = head.next
