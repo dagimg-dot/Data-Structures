@@ -94,5 +94,8 @@ class LinkedList(DataStructures):
         return count
 
     def fromlist(self, python_list: List) -> None:
+        """
+        Convert a python built-in list to a LinkedList
+        """
         for value in python_list:
             self._addNodeAtEnd(val=value)
