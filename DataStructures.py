@@ -47,6 +47,9 @@ class DataStructures():
         self.head = None
 
     def tolist(self) -> List:
+        """
+        Converts a DataStructure to a python built-in list
+        """
         python_list = []
         head = self.head
         if head == None:
