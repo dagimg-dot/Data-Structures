@@ -1,3 +1,4 @@
+from typing import List
 from DataStructures import DataStructures
 
 
@@ -91,3 +92,7 @@ class LinkedList(DataStructures):
             head = head.next
 
         return count
+
+    def fromlist(self, python_list: List) -> None:
+        for value in python_list:
+            self._addNodeAtEnd(val=value)
