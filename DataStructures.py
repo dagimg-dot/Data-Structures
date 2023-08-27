@@ -1,3 +1,6 @@
+from typing import List
+
+
 class ListNode():
     def __init__(self, val):
         self.val = val
@@ -43,6 +46,18 @@ class DataStructures():
         """
         self.head = None
 
+    def tolist(self) -> List:
+        python_list = []
+        head = self.head
+        if head == None:
+            return
+
+        while head != None:
+            python_list.append(head.val)
+            head = head.next
+
+        return python_list
+
     def _getByIndex(self, idx) -> ListNode:
         count = 0
         head = self.head
@@ -51,7 +66,7 @@ class DataStructures():
             head = head.next
         if self.size() == 0:
             raise IndexError("empty list")
-        
+
         if count == self.size():
             raise IndexError("out of range")
 
