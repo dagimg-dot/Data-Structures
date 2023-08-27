@@ -14,3 +14,16 @@ class Queue(DataStructures):
         Add value to the start of the queue
         """
         self._addNodeAtFirst(value)
+
+    def dequeue(self) -> any:
+        """
+        Delete value at the end of the queue
+        """
+        size = self.size()
+        if size == 0:
+            raise IndexError("dequeue from empty queue")
+
+        last_node = self._getByIndex(size - 1)
+        value = last_node.val
+        self._deleteNodeAtEnd()
+        return value
