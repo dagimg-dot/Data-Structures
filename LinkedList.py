@@ -17,6 +17,11 @@ class LinkedList(DataStructures):
         """
         self._addNodeAtEnd(value=value)
 
+    def extend(self, head: ListNode) -> None:
+        while head != None:
+            self._addNodeAtEnd(head.val)
+            head = head.next
+
     def index(self, value: any) -> int:
         """
         Return first index of value\n\n
