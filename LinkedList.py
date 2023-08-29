@@ -18,6 +18,9 @@ class LinkedList(DataStructures):
         self._addNodeAtEnd(value=value)
 
     def extend(self, head: ListNode) -> None:
+        """
+        Merge two LinkedLists into one
+        """
         while head != None:
             self._addNodeAtEnd(head.val)
             head = head.next
