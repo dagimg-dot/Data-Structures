@@ -1,5 +1,5 @@
 from typing import List
-from DataStructures import DataStructures
+from DataStructures import DataStructures, ListNode
 
 
 class LinkedList(DataStructures):
@@ -15,7 +15,7 @@ class LinkedList(DataStructures):
         """
         Append value to the end of the LinkedList
         """
-        self._addNodeAtEnd(val=value)
+        self._addNodeAtEnd(value=value)
 
     def index(self, value: any) -> int:
         """
@@ -51,10 +51,10 @@ class LinkedList(DataStructures):
         Raises IndexError if index not found
         """
         if self.size() == 0:
-            self._addNodeAtFirst(val=value)
+            self._addNodeAtFirst(value=value)
         else:
             node = self._getByIndex(index)
-            self._addNodeAtMiddle(pos=node.val, val=value)
+            self._addNodeAtMiddle(pos=node.val, value=value)
 
     def reverse(self) -> None:
         """
@@ -78,7 +78,7 @@ class LinkedList(DataStructures):
         Remove first occurence of value\n\n
         Raises ValueError if value is not present
         """
-        self._deleteNodeAtMiddle(val=value)
+        self._deleteNodeAtMiddle(value=value)
 
     def count(self, value: any) -> int:
         """
@@ -98,4 +98,4 @@ class LinkedList(DataStructures):
         Convert a python built-in list to a LinkedList
         """
         for value in python_list:
-            self._addNodeAtEnd(val=value)
+            self._addNodeAtEnd(value=value)
