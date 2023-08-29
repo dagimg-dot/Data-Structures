@@ -68,7 +68,7 @@ class DataStructures():
 
         return python_list
 
-    def _getByIndex(self, idx) -> ListNode:
+    def _getByIndex(self, idx: int) -> ListNode:
         count = 0
         head = self.head
         while head != None and count != idx:
@@ -82,19 +82,19 @@ class DataStructures():
 
         return head
 
-    def _find(self, val) -> ListNode:
+    def _find(self, value: any) -> ListNode:
         head = self.head
         if head == None:  # If the list is empty return None
             return None
         else:
-            while head != None and head.val != val:  # Loop until the value is found or the list is over
+            while head != None and head.val != value:  # Loop until the value is found or the list is over
                 head = head.next
 
         found = head  # This might be the node with the wanted value or None
         return found  # Whenever we use this method we have to handle the error correctly by checking if its a node or None
 
-    def _addNodeAtFirst(self, val) -> None:
-        new_node = ListNode(val=val)
+    def _addNodeAtFirst(self, value: any) -> None:
+        new_node = ListNode(val=value)
 
         # This checks if the linked list is empty or there are nodes
         if self.head == None:
@@ -106,8 +106,8 @@ class DataStructures():
             self.head = new_node  # Make the new node the head node
             self.head.next = head  # Make the previous node next to the new node
 
-    def _addNodeAtEnd(self, val) -> None:
-        new_node = ListNode(val=val)
+    def _addNodeAtEnd(self, value: any) -> None:
+        new_node = ListNode(val=value: any)
         new_node.next = None  # Make the next of the new node nothing
 
         head = self.head
@@ -123,15 +123,15 @@ class DataStructures():
             end = head  # Name the last node 'end' for clarity
             end.next = new_node  # Make the new node the last node
 
-    def _addNodeAtMiddle(self, pos, val) -> None:
+    def _addNodeAtMiddle(self, pos, value: any) -> None:
         if self.head == None:  # Check if the list is empty then call add node at first method
-            self._addNodeAtFirst(val=val)
+            self._addNodeAtFirst(val=value)
         else:
             found = self._find(val=pos)
             if found == None:
                 raise ValueError("value not found")
 
-            new_node = ListNode(val=val)
+            new_node = ListNode(val=value)
 
             next_node = found.next  # Save the node next to the found node for later
             found.next = new_node  # Make the next of the found node the new created node
@@ -155,14 +155,14 @@ class DataStructures():
 
             head.next = None  # Make the next of this node None
 
-    def _deleteNodeAtMiddle(self, val) -> None:
+    def _deleteNodeAtMiddle(self, value: any) -> None:
         head = self.head
         if head == None:  # Nothing to delete because the list it empty
             return
         elif head.next == None:  # Only one member is on the list, so call the deleteAtFirst method
             self.head = None
         else:
-            found = self._find(val=val)
+            found = self._find(val=value)
             if found == None:
                 raise ValueError("value not found")
 
