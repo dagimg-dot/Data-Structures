@@ -107,7 +107,7 @@ class DataStructures():
             self.head.next = head  # Make the previous node next to the new node
 
     def _addNodeAtEnd(self, value: any) -> None:
-        new_node = ListNode(val=value: any)
+        new_node = ListNode(val=value)
         new_node.next = None  # Make the next of the new node nothing
 
         head = self.head
