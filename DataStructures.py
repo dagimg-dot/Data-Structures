@@ -123,9 +123,9 @@ class DataStructures():
 
     def _addNodeAtMiddle(self, pos, value: any) -> None:
         if self.head == None:  # Check if the list is empty then call add node at first method
-            self._addNodeAtFirst(val=value)
+            self._addNodeAtFirst(value=value)
         else:
-            found = self._find(val=pos)
+            found = self._find(value=pos)
             if found == None:
                 raise ValueError("value not found")
 
