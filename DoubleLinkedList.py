@@ -38,3 +38,18 @@ class DoubleLinkedList():
             self.head = new_node
             self.head.next = head
             head.prev = self.head
+
+    def _addNodeAtEnd(self, value: any) -> None:
+        new_node = ListNode(val=value)
+        new_node.next = None
+
+        head = self.head
+        if head == None:
+            self.head = new_node
+        else:
+            while head.next != None:
+                head = head.next
+
+            end = head
+            end.next = new_node
+            new_node.prev = end
