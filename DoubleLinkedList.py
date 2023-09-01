@@ -8,6 +8,7 @@ class ListNode():
 class DoubleLinkedList():
     def __init__(self) -> None:
         self.head = None
+        self.tail = None
 
     def display(self) -> None:
         # TODO: I have to know what "Print the values to a stream" means related to the terminal
@@ -30,15 +31,17 @@ class DoubleLinkedList():
         new_node = ListNode(val=value)
 
         if self.head == None:
-            self.head = new_node
+            self.head = self.tail = new_node
         else:
             head = self.head
             self.head = new_node
+            self.tail = head
             self.head.next = head
             head.prev = self.head
 
     def _addNodeAtEnd(self, value: any) -> None:
         new_node = ListNode(val=value)
+        self.tail = new_node
 
         head = self.head
         if head == None:
