@@ -99,7 +99,6 @@ class DataStructures():
         # This checks if the linked list is empty or there are nodes
         if self.head == None:
             self.head = new_node  # Make the new node the head of the linked list
-            new_node.next = None  # Make the next of the new node point to nothing
         else:
             # This means there are already other nodes in the linked lilst
             head = self.head
@@ -108,7 +107,6 @@ class DataStructures():
 
     def _addNodeAtEnd(self, value: any) -> None:
         new_node = ListNode(val=value)
-        new_node.next = None  # Make the next of the new node nothing
 
         head = self.head
         # This checks if the linked list has already other nodes
