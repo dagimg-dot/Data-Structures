@@ -27,6 +27,17 @@ class DoubleLinkedList():
             print("]", end='')
             print()
 
+    def _find(self, value: any) -> ListNode:
+        head = self.head
+        if head == None:  # If the list is empty return None
+            return None
+        else:
+            while head != None and head.val != value:  # Loop until the value is found or the list is over
+                head = head.next
+
+        found = head  # This might be the node with the wanted value or None
+        return found  # Whenever we use this method we have to handle the error correctly by checking if its a node or None
+
     def _addNodeAtFirst(self, value: any) -> None:
         new_node = ListNode(val=value)
 
