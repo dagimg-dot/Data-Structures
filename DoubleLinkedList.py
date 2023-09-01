@@ -31,8 +31,6 @@ class DoubleLinkedList():
 
         if self.head == None:
             self.head = new_node
-            new_node.prev = None
-            new_node.next = None
         else:
             head = self.head
             self.head = new_node
@@ -41,7 +39,6 @@ class DoubleLinkedList():
 
     def _addNodeAtEnd(self, value: any) -> None:
         new_node = ListNode(val=value)
-        new_node.next = None
 
         head = self.head
         if head == None:
