@@ -61,3 +61,21 @@ class DoubleLinkedList():
             tail.next = new_node
             new_node.prev = tail
             self.tail = new_node
+
+    def _addNodeAtMiddle(self, pos, value: any) -> None:
+        if self.head == None:  # Check if the list is empty then call add node at first method
+            self._addNodeAtFirst(value=value)
+        else:
+            found = self._find(value=pos)
+            if found == None:
+                raise ValueError("value not found")
+
+            new_node = ListNode(val=value)
+
+            if found == self.tail:
+                self._addNodeAtEnd(value=value)
+            else:
+                next_node = found.next  # Save the node next to the found node for later
+                found.next = new_node  # Make the next of the found node the new created node
+                new_node.next = next_node  # Make the next of the new node what we saved earlier
+                new_node.prev = found
