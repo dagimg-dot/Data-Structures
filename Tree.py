@@ -15,12 +15,12 @@ class Tree():
         self.root = None
 
     def height(self) -> int:
-        return self._maxDepth(self.root)
-
-    def _maxDepth(self, root: TreeNode) -> int:
         """
         Returns the maximum depth of the tree
         """
+        return self._maxDepth(self.root)
+
+    def _maxDepth(self, root: TreeNode) -> int:
         if root == None:
             return 0
         else:
