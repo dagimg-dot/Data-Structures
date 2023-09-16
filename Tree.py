@@ -14,7 +14,10 @@ class Tree():
     def __init__(self) -> None:
         self.root = None
 
-    def maxDepth(self, root: TreeNode) -> int:
+    def height(self) -> int:
+        return self._maxDepth(self.root)
+
+    def _maxDepth(self, root: TreeNode) -> int:
         """
         Returns the maximum depth of the tree
         """
