@@ -1,3 +1,6 @@
+# This is my thought process to make a Tree Visualizer in the terminal
+
+
 # Height 1
 
 """
