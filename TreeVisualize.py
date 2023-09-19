@@ -1,3 +1,6 @@
+from math import pow
+
+
 def getSpace(numSpace):
     space = " "
     return space * numSpace
@@ -20,7 +23,7 @@ def getBinaryLine(numSpace, numUnderScore, spaceFromLeft, spaceBetween=0, quanti
 {getSpace(spaceFromLeft)}{getSpace(numSpace)}|{getSpace(numUnderScore * 2 + 1)}|
 """
         return binary_line
-    
+
 
 a = 6
 b = 3
@@ -44,7 +47,8 @@ def getUnderScore(quantity):
     return "_" * quantity
 
 # hypothetical function which takes a list as space number between what is written
-# for example 
+# for example
+
 
 h1 = """
     7
@@ -57,6 +61,7 @@ h1 = """
 # L2: [1], ["___|___"] -> this will be generated
 # L3: [0,7],["|","|"]
 # L4: [0,7],[9,12]
+
 
 def lineGenerator(spaces, values):
     final = ""
@@ -71,10 +76,68 @@ def lineGenerator(spaces, values):
 # print(lineGenerator([0,7],["|","|"]))
 # print(lineGenerator([0,7],[9,12]))
 
-print(lineGenerator([11], [4]))
-print(lineGenerator([5], ["______|______"]))
-print(lineGenerator([4,13],["|","|"]))
-print(lineGenerator([4,13],[7,8]))
-print(lineGenerator([1,7], ["___|___","___|___"]))
-print(lineGenerator([0,7,5,7],["|","|","|","|"]))
-print(lineGenerator([0,7,4,7],[9,12,5,2]))
+# print(lineGenerator([11], [4])) # 0
+# print(lineGenerator([5], ["______|______"])) # 1
+# print(lineGenerator([4,13],["|","|"]))  # 2
+# print(lineGenerator([4,13],[7,8])) # 3
+# print(lineGenerator([1,7], ["___|___","___|___"])) # 4
+# print(lineGenerator([0,7,5,7],["|","|","|","|"])) # 5
+# print(lineGenerator([0,7,5,7],[9,3,5,2])) # 6
+
+MIN_NUMBEROFLINE = 4
+MIN_UNDERSCORE = 3
+
+height = 1
+total_line = MIN_NUMBEROFLINE + 3 * (height - 1)  # This is constant
+
+node_values = [1, 2, 3]
+height_count = height
+
+underscore = MIN_UNDERSCORE * int(pow(2, height_count - 1))  # This is variable
+
+l1_spaces = [4, 11, 24, 49, 98]
+# l1_spaces = []
+
+spaces = []
+values = []
+
+spaces.append(l1_spaces[height_count - 1])
+values.append(node_values[0])
+
+x = lineGenerator(spaces, values)
+print(x)
+
+# print(lineGenerator([4], [7])) # 0
+# print(lineGenerator([1], ["___|___"])) # 1
+# print(lineGenerator([0,7],["|","|"])) # 2
+# print(lineGenerator([0,7],[9,12])) # 3
+
+# so we need three conditions in the for loop
+# and the conditions are determined by modulus of 3
+
+for i in range(total_line):
+    current_line = i + 1
+    spaces = []
+    values = []
+
+    # Do something and generate the spaces and values for lineGenerator function
+    # spaces = ?
+    # values = ?
+
+    if i % 3 == 0:
+        # This is where spaces and node values are given
+        pass
+    elif i % 3 == 1:
+        # This is where spaces and "___|___" these things are given
+        pass
+    elif i % 3 == 2:
+        # This is where spaces and "|" these things are given
+        pass
+
+    spaces.append(l1_spaces[height_count - 1])
+    values.append(node_values[i])
+
+    lineGenerator(spaces, values)
+
+    if current_line == 4 or current_line % 4 == 3:
+        height_count -= 1
