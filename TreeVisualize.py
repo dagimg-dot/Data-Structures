@@ -84,28 +84,19 @@ def lineGenerator(spaces, values):
 # print(lineGenerator([0,7,5,7],["|","|","|","|"])) # 5
 # print(lineGenerator([0,7,5,7],[9,3,5,2])) # 6
 
-MIN_NUMBEROFLINE = 4
-MIN_UNDERSCORE = 3
 
-height = 1
-total_line = MIN_NUMBEROFLINE + 3 * (height - 1)  # This is constant
-
-node_values = [1, 2, 3]
-height_count = height
-
-underscore = MIN_UNDERSCORE * int(pow(2, height_count - 1))  # This is variable
 
 l1_spaces = [4, 11, 24, 49, 98]
 # l1_spaces = []
 
-spaces = []
-values = []
+# spaces = []
+# values = []
 
-spaces.append(l1_spaces[height_count - 1])
-values.append(node_values[0])
+# spaces.append(l1_spaces[height_count - 1])
+# values.append(node_values[0])
 
-x = lineGenerator(spaces, values)
-print(x)
+# x = lineGenerator(spaces, values)
+# print(x)
 
 # print(lineGenerator([4], [7])) # 0
 # print(lineGenerator([1], ["___|___"])) # 1
@@ -114,6 +105,44 @@ print(x)
 
 # so we need three conditions in the for loop
 # and the conditions are determined by modulus of 3
+
+def spaceGenerator(current_height, current_line):
+    spaces = []
+
+
+
+    return spaces
+
+def valueGenerator(current_height, current_line):
+    values = []
+
+
+
+    return values
+
+
+######################
+# Test for height: 2 #
+######################
+
+MIN_NUMBEROFLINE = 4
+MIN_UNDERSCORE = 3
+ 
+height = 2
+total_line = MIN_NUMBEROFLINE + 3 * (height - 1)  # This is constant
+
+node_values = [1, 2, 3, 4, 5, 6, 7]
+current_height = height
+
+underscore = MIN_UNDERSCORE * int(pow(2, current_height - 1))  # This is variable
+
+# print(lineGenerator([11], [4])) # 0
+# print(lineGenerator([5], ["______|______"])) # 1
+# print(lineGenerator([4,13],["|","|"]))  # 2
+# print(lineGenerator([4,13],[7,8])) # 3
+# print(lineGenerator([1,7], ["___|___","___|___"])) # 4
+# print(lineGenerator([0,7,5,7],["|","|","|","|"])) # 5
+# print(lineGenerator([0,7,5,7],[9,3,5,2])) # 6
 
 for i in range(total_line):
     current_line = i + 1
@@ -126,18 +155,19 @@ for i in range(total_line):
 
     if i % 3 == 0:
         # This is where spaces and node values are given
-        pass
+        spaces = spaceGenerator(current_height, current_line)
+        values = valueGenerator(current_height, current_line)
+
+        # Change the height based on the current line
+        if current_line % 4 == 3:
+            current_height -= 1
     elif i % 3 == 1:
         # This is where spaces and "___|___" these things are given
-        pass
+        spaces = spaceGenerator(current_height, current_line)
+        values = valueGenerator(current_height, current_line)
     elif i % 3 == 2:
         # This is where spaces and "|" these things are given
-        pass
-
-    spaces.append(l1_spaces[height_count - 1])
-    values.append(node_values[i])
+        spaces = spaceGenerator(current_height, current_line)
+        values = valueGenerator(current_height, current_line)
 
     lineGenerator(spaces, values)
-
-    if current_line == 4 or current_line % 4 == 3:
-        height_count -= 1
