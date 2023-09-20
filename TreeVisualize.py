@@ -64,17 +64,17 @@ h1 = """
 
 
 def lineGenerator(spaces, values):
-    final = ""
+    line = ""
     for i in range(len(spaces)):
-        final += f"{getSpace(spaces[i])}{values[i]}"
+        line += f"{getSpace(spaces[i])}{values[i]}"
 
-    return final
+    return line
 
 
-# print(lineGenerator([4], [7]))
-# print(lineGenerator([1], ["___|___"]))
-# print(lineGenerator([0,7],["|","|"]))
-# print(lineGenerator([0,7],[9,12]))
+# print(lineGenerator([4], [7])) # 0
+# print(lineGenerator([1], ["___|___"])) # 1
+# print(lineGenerator([0,7],["|","|"])) # 2
+# print(lineGenerator([0,7],[9,12])) # 3
 
 # print(lineGenerator([11], [4])) # 0
 # print(lineGenerator([5], ["______|______"])) # 1
@@ -84,6 +84,16 @@ def lineGenerator(spaces, values):
 # print(lineGenerator([0,7,5,7],["|","|","|","|"])) # 5
 # print(lineGenerator([0,7,5,7],[9,3,5,2])) # 6
 
+# print(lineGenerator([24],[3])) # 0
+# print(lineGenerator([12],["____________|____________"])) # 1
+# print(lineGenerator([11,25],["|","|"])) # 3
+# print(lineGenerator([11,25],[4,10])) # 4
+# print(lineGenerator([5,13],["______|______","______|______"])) # 5
+# print(lineGenerator([4,13,11,13],["|","|","|","|"])) # 6
+# print(lineGenerator([4,13,11,13],[7,8,1,5])) # 7
+# print(lineGenerator([1,7,5,7],["___|___","___|___","___|___","___|___"])) # 8
+# print(lineGenerator([0,7,5,7,3,7,5,7],["|","|","|","|","|","|","|","|"])) # 9
+# print(lineGenerator([0,7,5,7,3,7,5,7],[3,4,5,3,5,3,5,2])) # 10
 
 l1_spaces = [4, 11, 24, 49, 98]
 # l1_spaces = []
@@ -114,7 +124,7 @@ MIN_NUMBEROFLINE = 4
 MIN_UNDERSCORE = 3
 MIN_SPACEROOT = 4
 
-height = 2
+height = 3
 total_line = MIN_NUMBEROFLINE + 3 * (height - 1)  # This is constant
 
 node_values = [1, 2, 3, 4, 5, 6, 7]
@@ -181,12 +191,14 @@ for i in range(total_line):
         previous_us = underscore
         spaces.append(space)
 
+        # space_between = 2 * underscore + 1
+        # spaces.append(space_between)
+
         # values
 
         values.extend(node_values[:2**count[0]])
 
-        if i != 0:
-            current_height -= 1
+        current_height -= 1
 
         count[0] += 1
 
@@ -214,10 +226,13 @@ for i in range(total_line):
         previous_space = space
         spaces.append(space)
 
+        space2 = previous_us * 2 + 1
+        spaces.append(space2)
+
         # values
 
         value = "|"
-        values.extend([value] * 2**count[2])
+        values.extend([value] * 2**(count[2] + 1))
 
         count[2] += 1
 
