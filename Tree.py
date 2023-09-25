@@ -37,17 +37,17 @@ class Tree():
     Tree implemenation
     """
 
-    qCount = 0
+    _qCount = 0
 
     def __init__(self) -> None:
         self.root = None
 
     def getQ(self):
-        if self.qCount == 0:
-            self.qCount += 1
+        if self._qCount == 0:
+            self._qCount += 1
             return "Enter the value for the new node"
         else:
-            self.qCount += 1
+            self._qCount += 1
             return ""
 
     def create(self) -> TreeNode:
@@ -58,13 +58,14 @@ class Tree():
 
         new_node = TreeNode(val=value)
 
-        if self.qCount == 0:
+        if self._qCount == 0:
             self.root = new_node
-            
+
         print("Enter the value of left child of " + value, end='')
         new_node.left = self.create()
         print("Enter the value of right child of " + value, end='')
         new_node.right = self.create()
+        print(self.height())
         return new_node
 
     def height(self) -> int:
