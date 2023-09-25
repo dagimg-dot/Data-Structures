@@ -6,32 +6,6 @@ class TreeNode():
         self.right = None
 
 
-"""
-Code from C++
-
-struct node *create() {
-  int x; // different local variable would be created for each function call
-  struct node *newNode;
-  newNode = (struct node *)malloc(sizeof(struct node));
-  cout << "Enter the data or enter 'n/N' for no node" << endl;
-  cin >> x;
-    while (dataTypeChecker(x) != 0) {
-      cout << "Invalid input, please enter data again : ";
-      cin >> x;
-    }
-  if (x == 0)
-    return 0;
-  newNode->data = x;
-  cout << " Enter the data of left child of " << x << endl;
-  newNode->left = create(); // create function always return pointer to node(address)
-  cout << " Enter the data of right child of " << x << endl;
-  newNode->right = create(); // this recursion
-  return newNode;
-}
-
-"""
-
-
 class Tree():
     """
     Tree implemenation
