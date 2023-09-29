@@ -1,3 +1,5 @@
+from typing import List
+
 
 class TreeNode():
     def __init__(self, val) -> None:
@@ -13,18 +15,28 @@ class BST():
 
     def __init__(self) -> None:
         """
-        Constructor to create a new BST object
+        Create a default binary search tree
         """
         self.root = None
         self.size = 0
 
     def __init__(self, root) -> None:
         """
-        Constructor to create a new BST object with the root
+        Create a binary search tree with the root
         """
         new_node = TreeNode(root)
         self.root = new_node
         self.size = 1
+
+    def __init__(self, objects: List[any]) -> None:
+        """
+        Create a binary search tree from a list of objects
+        """
+        self.root = None
+        self.size = 0
+        list_size = len(objects)
+        for i in range(list_size):
+            self.insert(objects[i])
 
     def insert(self, value: any) -> bool:
         """
