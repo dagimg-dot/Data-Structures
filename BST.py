@@ -68,6 +68,21 @@ class BST():
         self.size += 1
         return True
 
+    def search(self, value: any) -> bool:
+        """
+        Return true if the value is in the tree
+        """
+        current = self.root
+        while current != None:
+            if value < current.val:
+                current = current.left
+            elif value > current.val:
+                current = current.right
+            else:
+                return True
+
+        return False
+
     def height(self) -> int:
         """
         Returns the maximum depth of the tree
