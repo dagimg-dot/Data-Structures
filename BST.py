@@ -13,6 +13,7 @@ class BST():
 
     def __init__(self) -> None:
         self.root = None
+        self.size = 0
 
     def insert(self, value: any) -> bool:
         """
@@ -41,6 +42,7 @@ class BST():
             else:
                 parent.right = new_treeNode
 
+        self.size += 1
         return True
 
     def height(self) -> int:
@@ -48,6 +50,9 @@ class BST():
         Returns the maximum depth of the tree
         """
         return self._maxDepth(self.root)
+
+    def getSize(self):
+        return self.size
 
     def _maxDepth(self, root: TreeNode) -> int:
         if root == None:
