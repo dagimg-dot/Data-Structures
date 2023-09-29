@@ -12,8 +12,19 @@ class BST():
     """
 
     def __init__(self) -> None:
+        """
+        Constructor to create a new BST object
+        """
         self.root = None
         self.size = 0
+
+    def __init__(self, root) -> None:
+        """
+        Constructor to create a new BST object with the root
+        """
+        new_node = TreeNode(root)
+        self.root = new_node
+        self.size = 1
 
     def insert(self, value: any) -> bool:
         """
