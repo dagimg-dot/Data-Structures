@@ -14,14 +14,6 @@ class BST():
     def __init__(self) -> None:
         self.root = None
 
-    def getQ(self):
-        if self._qCount == 0:
-            self._qCount += 1
-            return "Enter the value for the new node"
-        else:
-            self._qCount += 1
-            return ""
-
     def height(self) -> int:
         """
         Returns the maximum depth of the tree
