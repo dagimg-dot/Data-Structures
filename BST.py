@@ -54,6 +54,9 @@ class BST():
     def getSize(self):
         return self.size
 
+    def isEmpty(self):
+        return self.size == 0
+
     def _maxDepth(self, root: TreeNode) -> int:
         if root == None:
             return 0
