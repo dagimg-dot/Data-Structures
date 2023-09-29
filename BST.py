@@ -101,6 +101,13 @@ class BST():
         """
         return self.size == 0
 
+    def clear(self) -> None:
+        """
+        Remove all elements from the tree
+        """
+        self.root = None
+        self.size = 0
+
     def _maxDepth(self, root: TreeNode) -> int:
         if root == None:
             return 0
