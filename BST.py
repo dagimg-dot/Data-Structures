@@ -1,4 +1,5 @@
 from typing import List
+from type import types
 
 
 class TreeNode():
@@ -13,14 +14,23 @@ class BST():
     Binary Search Tree implemenation
     """
 
-    def __init__(self) -> None:
+    def __init__(self, *args) -> None:
         """
-        Create a default binary search tree
+        Create a binary search tree\n\n
+        - `tree = BST()` creates an empty binary search tree\n
+        - `tree = BST(4)` creates a binary search tree with a root\n
+        - `tree = BST([1,2,3])` creates a binary search tree from a list
         """
-        self.root = None
-        self.size = 0
+        if len(args) == 0:
+            self.root = None
+            self.size = 0
+        else:
+            if type(args[0]) == types.LIST:
+                self.__initWithList(args[0])
+            else:
+                self.__initWithRoot(args[0])
 
-    def __init__(self, root) -> None:
+    def __initWithRoot(self, root) -> None:
         """
         Create a binary search tree with the root
         """
@@ -28,7 +38,7 @@ class BST():
         self.root = new_node
         self.size = 1
 
-    def __init__(self, objects: List[any]) -> None:
+    def __initWithList(self, objects: List[any]) -> None:
         """
         Create a binary search tree from a list of objects
         """
