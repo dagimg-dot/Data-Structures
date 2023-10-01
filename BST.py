@@ -78,6 +78,49 @@ class BST():
         self.size += 1
         return True
 
+    def delete(self, value: any) -> bool:
+        parent = None
+        current = self.root
+
+        while current != None:
+            if value < current.val:
+                parent = current
+                current = current.left
+            elif value > current.val:
+                parent = current
+                current = current.right
+            else:
+                break
+
+        if current == None:
+            return False
+
+        if current.left == None:
+            if parent == None:
+                self.root = current.right
+            else:
+                if value < parent.val:
+                    parent.left = current.right
+                else:
+                    parent.right = current.right
+        else:
+            parentOfRightMost = current
+            rightMost = current.left
+
+            while rightMost.right != None:
+                parentOfRightMost = rightMost
+                rightMost = rightMost.right
+
+            current.val = rightMost.val
+
+            if parentOfRightMost.right == rightMost:
+                parentOfRightMost.right = rightMost.left
+            else:
+                parentOfRightMost.left = rightMost.left
+
+        self.size -= 1
+        return True
+
     def search(self, value: any) -> bool:
         """
         Return true if the value is in the tree
