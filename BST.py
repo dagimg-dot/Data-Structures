@@ -153,6 +153,12 @@ class BST():
         """
         return self.size
 
+    def getRoot(self) -> TreeNode:
+        """
+        Returns the root of the tree
+        """
+        return self.root
+
     def isEmpty(self) -> bool:
         """
         Return true if the tree is empty
