@@ -79,6 +79,11 @@ class BST():
         return True
 
     def delete(self, value: any) -> bool:
+        """
+        Delete a value from the binary search tree.
+
+        Return True if the element is deleted successfully.
+        """
         parent = None
         current = self.root
 
