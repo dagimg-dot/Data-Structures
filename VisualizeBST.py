@@ -61,6 +61,9 @@ class VisualizeBST():
                         70, self.width / 4)
 
     def visualize(self):
+        """
+        Display the given binary search tree in a window.
+        """
         self.paintComponent()
         self.window.mainloop()
 
