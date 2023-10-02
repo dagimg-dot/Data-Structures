@@ -31,6 +31,9 @@ class VisualizeBST():
         return canvas
 
     def paintComponent(self) -> None:
+        """
+        Main method to paint the binary search tree on the canvas.
+        """
 
         def displayTree(root: TreeNode, x: int, y: int, hGap: int) -> None:
 
