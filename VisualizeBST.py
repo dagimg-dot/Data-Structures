@@ -4,6 +4,14 @@ from math import sqrt
 
 
 class VisualizeBST():
+    """
+    Class to visualize a binary search tree.\n
+    Args:
+        tree: `BST` \n
+    `visualizer = VisualizeBST(tree)`\n
+    `visualizer.visualize()`
+    """
+
     def __init__(self, tree: BST) -> None:
         self.window = tk.Tk()
         self.tree = tree
