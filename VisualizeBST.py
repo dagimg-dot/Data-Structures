@@ -1,5 +1,6 @@
 import tkinter as tk
 from BST import BST
+from BST import TreeNode
 from math import sqrt
 
 
@@ -31,9 +32,9 @@ class VisualizeBST():
 
     def paintComponent(self) -> None:
 
-        def displayTree(root, x, y, hGap) -> None:
+        def displayTree(root: TreeNode, x: int, y: int, hGap: int) -> None:
 
-            def connectTwoNodes(x1, y1, x2, y2):
+            def connectTwoNodes(x1: int, y1: int, x2: int, y2: int) -> None:
                 d = sqrt(self.vGap * self.vGap + (x2 - x1) * (x2 - x1))
                 x11 = int(x1 - self.radius * (x1 - x2) / d)
                 y11 = int(y1 - self.radius * (y1 - y2) / d)
