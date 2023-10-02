@@ -33,7 +33,7 @@ class VisualizeBST():
 
         def displayTree(root, x, y, hGap) -> None:
 
-            def connectTwoCircles(x1, y1, x2, y2):
+            def connectTwoNodes(x1, y1, x2, y2):
                 d = sqrt(self.vGap * self.vGap + (x2 - x1) * (x2 - x1))
                 x11 = int(x1 - self.radius * (x1 - x2) / d)
                 y11 = int(y1 - self.radius * (y1 - y2) / d)
@@ -48,15 +48,16 @@ class VisualizeBST():
             self.canvas.create_text(x - 25, y - 25, text=f"{root.val}")
 
             if root.left != None:
-                connectTwoCircles(x - hGap, y + self.vGap, x, y)
+                connectTwoNodes(x - hGap, y + self.vGap, x, y)
                 displayTree(root.left, x - hGap, y + self.vGap, hGap / 2)
 
             if root.right != None:
-                connectTwoCircles(x + hGap, y + self.vGap, x, y)
+                connectTwoNodes(x + hGap, y + self.vGap, x, y)
                 displayTree(root.right, x + hGap, y + self.vGap, hGap / 2)
 
         if self.tree.getRoot != None:
-            displayTree(self.tree.getRoot(), self.width / 2,
+            tree = self.tree
+            displayTree(tree.getRoot(), self.width / 2,
                         70, self.width / 4)
 
     def visualize(self):
