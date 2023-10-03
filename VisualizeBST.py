@@ -45,8 +45,6 @@ class VisualizeBST():
                 y21 = int(y2 + self.radius * (y1 - y2) / d)
                 self.canvas.create_line(x11, y11, x21, y21)
 
-            x += (self.radius / 2)
-
             # Display the root
             self.canvas.create_oval(x, y - self.radius, x - self.radius, y)
             self.canvas.create_text(x - 25, y - 25, text=f"{root.val}")
@@ -62,7 +60,7 @@ class VisualizeBST():
         if self.tree.getRoot != None:
             tree = self.tree
             displayTree(tree.getRoot(), self.width / 2,
-                        70, self.width / 4)
+                        self.vGap, self.width / 4)
 
     def visualize(self):
         """
