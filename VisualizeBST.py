@@ -26,7 +26,7 @@ class VisualizeBST():
         self.canvas = self.createCanvas()
 
     def createCanvas(self) -> tk.Canvas:
-        canvas = tk.Canvas(self.window, bg="#777")
+        canvas = tk.Canvas(self.window, bg="#222")
         canvas.pack(fill='both', expand=1)
         return canvas
 
