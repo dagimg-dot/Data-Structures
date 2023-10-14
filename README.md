@@ -6,3 +6,4 @@
     - Stack (Using the Linked List created)
     - Queue (Using the Linked List created)
     - Binary Search Tree
+    - BST Visualizer
