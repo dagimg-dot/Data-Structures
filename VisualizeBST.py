@@ -37,6 +37,9 @@ class VisualizeBST():
 
         def displayTree(root: TreeNode, x: int, y: int, hGap: int) -> None:
 
+            x = x + 25
+            y = y + 25
+
             def connectTwoNodes(x1: int, y1: int, x2: int, y2: int) -> None:
                 d = sqrt(self.vGap * self.vGap + (x2 - x1) * (x2 - x1))
                 x11 = int(x1 - self.radius * (x1 - x2) / d)
@@ -49,6 +52,9 @@ class VisualizeBST():
             self.canvas.create_oval(x, y - self.radius, x - self.radius, y)
             self.canvas.create_text(x - 25, y - 25, text=f"{root.val}")
 
+            x = x - 25
+            y = y - 25
+
             if root.left != None:
                 connectTwoNodes(x - hGap, y + self.vGap, x, y)
                 displayTree(root.left, x - hGap, y + self.vGap, hGap / 2)
@@ -57,10 +63,10 @@ class VisualizeBST():
                 connectTwoNodes(x + hGap, y + self.vGap, x, y)
                 displayTree(root.right, x + hGap, y + self.vGap, hGap / 2)
 
-        if self.tree.getRoot != None:
+        if self.tree.getRoot() != None:
             tree = self.tree
             displayTree(tree.getRoot(), self.width / 2,
-                        self.vGap, self.width / 4)
+                        70, self.width / 3)
 
     def visualize(self):
         """
